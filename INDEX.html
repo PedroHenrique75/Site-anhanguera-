@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlética Fox - Universidade Anhanguera</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset e estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Cores da identidade visual */
+    :root {
+      --laranja-forte: #FF5A09;
+      --laranja-escuro: #E54D00;
+      --preto: #000000;
+      --preto-claro: #1A1A1A;
+      --branco: #FFFFFF;
+      --cinza: #333333;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header e Navegação */
+    header {
+      background-color: var(--preto);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      font-size: 2.5rem;
+      color: var(--laranja-forte);
+      margin-right: 10px;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--branco);
+    }
+    
+    .logo-text span {
+      color: var(--laranja-forte);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 25px;
+    }
+    
+    nav a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    
+    nav a:hover, nav a.active {
+      color: var(--laranja-forte);
+      background-color: rgba(255, 90, 9, 0.1);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero h1 span {
+      color: var(--laranja-forte);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      color: var(--branco);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--laranja-forte);
+      color: var(--branco);
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--laranja-forte);
+      font-size: 1.1rem;
+      margin: 0 10px;
+    }
+    
+    .btn:hover {
+      background-color: transparent;
+      color: var(--laranja-forte);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 90, 9, 0.3);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--laranja-forte);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--laranja-forte);
+      color: var(--branco);
+    }
+    
+    /* Seções */
+    section {
+      padding: 100px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: var(--branco);
+    }
+    
+    .section-title h2 span {
+      color: var(--laranja-forte);
+    }
+    
+    .section-title p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+    
+    .divider {
+      height: 4px;
+      width: 80px;
+      background-color: var(--laranja-forte);
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    /* Sobre */
+    .sobre {
+      background-color: var(--preto-claro);
+    }
+    
+    .sobre-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .sobre-text {
+      flex: 1;
+    }
+    
+    .sobre-text h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--laranja-forte);
+    }
+    
+    .sobre-text p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .sobre-img {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border: 3px solid var(--laranja-forte);
+    }
+    
+    .sobre-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .sobre-img:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Modalidades */
+    .modalidades {
+      background-color: var(--preto);
+    }
+    
+    .modalidades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .modalidade-card {
+      background-color: var(--preto-claro);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-bottom: 4px solid var(--laranja-forte);
+    }
+    
+    .modalidade-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 90, 9, 0.2);
+    }
+    
+    .card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .modalidade-card:hover .card-img img {
+      transform: scale(1.1);
+    }
+    
+    .card-content {
+      padding: 25px;
+    }
+    
+    .card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--laranja-forte);
+    }
+    
+    .card-content p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    
+    /* Eventos */
+    .eventos {
+      background-color: var(--preto-claro);
+    }
+    
+    .eventos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .evento-card {
+      background-color: var(--preto);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .evento-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .evento-data {
+      background-color: var(--laranja-forte);
+      color: var(--branco);
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .evento-info {
+      padding: 25px;
+    }
+    
+    .evento-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+    
+    .evento-info p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    
+    /* Contato */
+    .contato {
+      background-color: var(--preto);
+    }
+    
+    .contato-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+    
+    .contato-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--laranja-forte);
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--laranja-forte);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .contato-form {
+      background-color: var(--preto-claro);
+      padding: 30px;
+      border-radius: 10px;
+    }
+    
+    .contato-form h3 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--laranja-forte);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: var(--preto);
+      color: var(--branco);
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--preto);
+      padding: 60px 0 30px;
+      border-top: 2px solid var(--laranja-forte);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-col h4 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--laranja-forte);
+    }
+    
+    .footer-col p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--laranja-forte);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--preto-claro);
+      color: var(--branco);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--laranja-forte);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      color: #ccc;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .sobre-content {
+        flex-direction: column;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-paw"></i></div>
+        <div class="logo-text">ATLÉTICA <span>FOX</span></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#modalidades">Modalidades</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>ATLÉTICA <span>FOX</span></h1>
+      <p>Representando com orgulho a Universidade Anhanguera</p>
+      <div>
+        <a href="#contato" class="btn">Junte-se a Nós</a>
+        <a href="#modalidades" class="btn btn-outline">Modalidades</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sobre <span>Nós</span></h2>
+        <div class="divider"></div>
+        <p>Conheça a história e o propósito da Atlética Fox</p>
+      </div>
+      
+      <div class="sobre-content">
+        <div class="sobre-text">
+          <h3>Quem Somos</h3>
+          <p>A Atlética Fox é a representante oficial dos alunos do Centro Universitário Anhanguera. Fundada em 2010, temos como objetivo promover a integração entre os alunos através do esporte e eventos sociais.</p>
+          <p>Nossa missão é fomentar o espírito esportivo, a saúde e o bem-estar da comunidade acadêmica, sempre com muita energia e dedicação.</p>
+          <p>Com mais de 500 atletas em diversas modalidades, somos uma das maiores atléticas da região e orgulhosos representantes da nossa instituição em competições universitárias.</p>
+          <a href="#contato" class="btn">Saiba Mais</a>
+        </div>
+        <div class="sobre-img">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Time da Atlética Fox">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalidades -->
+  <section id="modalidades" class="modalidades">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nossas <span>Modalidades</span></h2>
+        <div class="divider"></div>
+        <p>Conheça as modalidades esportivas que oferecemos</p>
+      </div>
+      
+      <div class="modalidades-grid">
+        <div class="modalidade-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Futsal">
+          </div>
+          <div class="card-content">
+            <h3>Futsal</h3>
+            <p>Nossa equipe de futsal é uma das mais tradicionais da região, com vários títulos conquistados.</p>
+            <a href="#contato" class="btn btn-outline">Participar</a>
+          </div>
+        </div>
+        
+        <div class="modalidade-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vôlei">
+          </div>
+          <div class="card-content">
+            <h3>Vôlei</h3>
+            <p>Time misto de vôlei com treinos semanais e participação em diversos campeonatos.</p>
+            <a href="#contato" class="btn btn-outline">Participar</a>
+          </div>
+        </div>
+        
+        <div class="modalidade-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Basquete">
+          </div>
+          <div class="card-content">
+            <h3>Basquete</h3>
+            <p>Equipe de basquete masculino e feminino com treinamentos especializados.</p>
+            <a href="#contato" class="btn btn-outline">Participar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section id="eventos" class="eventos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Próximos <span>Eventos</span></h2>
+        <div class="divider"></div>
+        <p>Fique por dentro dos nossos eventos e competições</p>
+      </div>
+      
+      <div class="eventos-container">
+        <div class="evento-card">
+          <div class="evento-data">15 OUT</div>
+          <div class="evento-info">
+            <h3>Interclasses 2023</h3>
+            <p>Competição entre os cursos da universidade com diversas modalidades esportivas.</p>
+            <a href="#contato" class="btn">Inscrever-se</a>
+          </div>
+        </div>
+        
+        <div class="evento-card">
+          <div class="evento-data">28 OUT</div>
+          <div class="evento-info">
+            <h3>Festival de Integração</h3>
+            <p>Evento de integração com música, comida e atividades esportivas para todos os alunos.</p>
+            <a href="#contato" class="btn">Inscrever-se</a>
+          </div>
+        </div>
+        
+        <div class="evento-card">
+          <div class="evento-data">12 NOV</div>
+          <div class="evento-info">
+            <h3>Campeonato Regional</h3>
+            <p>Represente a Atlética Fox no campeonato regional de universidades.</p>
+            <a href="#contato" class="btn">Inscrever-se</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="contato">
+    <div class="container">
+      <div class="section-title">
+        <h2>Fale <span>Conosco</span></h2>
+        <div class="divider"></div>
+        <p>Entre em contato para mais informações ou para fazer parte da nossa equipe</p>
+      </div>
+      
+      <div class="contato-content">
+        <div class="contato-info">
+          <h3>Informações de Contato</h3>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Endereço</h4>
+              <p>Av. Universidade, 123 - Centro, Jacareí - SP</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h4>Telefone</h4>
+              <p>(12) 3456-7890</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p>contato@atleticafox.com.br</p>
+            </div>
+          </div>
+          
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="contato-form">
+          <h3>Envie uma Mensagem</h3>
+          <form>
+            <div class="form-group">
+              <label for="nome">Nome Completo</label>
+              <input type="text" id="nome" placeholder="Seu nome completo">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Seu melhor email">
+            </div>
+            
+            <div class="form-group">
+              <label for="assunto">Assunto</label>
+              <input type="text" id="assunto" placeholder="Assunto da mensagem">
+            </div>
+            
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Enviar Mensagem</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Atlética Fox</h4>
+          <p>Representando com orgulho a Universidade Anhanguera. Promovendo esporte, saúde e integração entre os alunos.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Links Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Modalidades</h4>
+          <ul class="footer-links">
+            <li><a href="#">Futsal</a></li>
+            <li><a href="#">Vôlei</a></li>
+            <li><a href="#">Basquete</a></li>
+            <li><a href="#">Handebol</a></li>
+            <li><a href="#">Natação</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Av. Universidade, 123 - Centro</li>
+            <li><i class="fas fa-phone"></i> (12) 3456-7890</li>
+            <li><i class="fas fa-envelope"></i> contato@atleticafox.com.br</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2023 Atlética Fox - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
